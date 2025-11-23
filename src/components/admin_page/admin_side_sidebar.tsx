@@ -28,25 +28,26 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const drawerWidth = 240; // Define a consistent width
 
-export default function AdminSideBar() {
+export default function AdminSideBar({selectedButton}: {selectedButton: string}) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const theme = useTheme();
+    const [selectedListItemButton, setSelectedListItemButton] = useState(selectedButton);
 
     const firstNavItems = [
-        { text: 'Main', icon: <HomeIcon /> },
-        { text: 'Starred', icon: <StarIcon /> },
-        { text: 'Individuals', icon: <PeopleIcon /> },
-        { text: 'Galleries', icon: <CollectionsIcon /> },
-        { text: 'Statistics', icon: <AnalyticsIcon /> },
+        { text: 'Main', icon: <HomeIcon />, path: '/admin' },
+        { text: 'Starred', icon: <StarIcon />, path: '#' },
+        { text: 'Individuals', icon: <PeopleIcon />, path: '/admin/individuals' },
+        { text: 'Galleries', icon: <CollectionsIcon />, path: '#' },
+        { text: 'Statistics', icon: <AnalyticsIcon />, path: '#' },
     ]
 
     const secondNavItems = [
-        { text: 'Settings', icon: <SettingsIcon /> },
-        { text: 'History', icon: <HistoryIcon /> },
-        { text: 'Logs', icon: <UpdateIcon /> },
-        { text: 'Exit To App', icon: <ExitToAppIcon color='primary' /> },
-        { text: 'Logout', icon: <LogoutIcon color='error'/> },
+        { text: 'Settings', icon: <SettingsIcon />, path: '#' },
+        { text: 'History', icon: <HistoryIcon />, path: '#' },
+        { text: 'Logs', icon: <UpdateIcon />, path: '#' },
+        { text: 'Exit To App', icon: <ExitToAppIcon color='primary' />, path: '#' },
+        { text: 'Logout', icon: <LogoutIcon color='error'/>, path: '#' },
     ]
 
     const drawerList = (
@@ -56,7 +57,7 @@ export default function AdminSideBar() {
             <List>
                 {firstNavItems.map((item) => (
                     <ListItem key={item.text} disablePadding>
-                        <ListItemButton>
+                        <ListItemButton component="a" href={item.path} selected={selectedListItemButton == item.text}>
                             <ListItemIcon>
                                 {item.icon}
                             </ListItemIcon>
@@ -69,7 +70,7 @@ export default function AdminSideBar() {
             <List>
                 {secondNavItems.map((item) => (
                     <ListItem key={item.text} disablePadding>
-                        <ListItemButton>
+                        <ListItemButton  component="a" href={item.path}>
                             <ListItemIcon>
                                 {item.icon}
                             </ListItemIcon>
@@ -103,7 +104,7 @@ export default function AdminSideBar() {
     return (
         <ThemeProvider theme={theme}>
             <AppBar
-                position="fixed"
+                position="sticky"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
