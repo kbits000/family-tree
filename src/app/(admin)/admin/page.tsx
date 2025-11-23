@@ -1,13 +1,15 @@
 import Footer from '@/components/footer/Footer';
-import Link from 'next/link'
+// import Link from 'next/link'
+import Link from '@/components/Link';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AdminSideBar from "@/components/admin_page/admin_side_sidebar";
 
-
 export default function AdminPage() {
     return (
         <div>
+            {/*<Link href="/admin/individuals">Individuals 555553Page</Link>*/}
+            <AdminSideBar selectedButton={"Main"}/>
             <Typography
                 sx={{
                     textAlign: 'center',
@@ -17,10 +19,13 @@ export default function AdminPage() {
             >
                 Admin Page
             </Typography>
-            <Button variant="contained">
-                <Link href="/admin/individuals">Individuals Page</Link>
+            <Button
+                variant="contained"
+                component={Link}
+                href={'/admin/individuals'}
+            >
+                Individuals Page
             </Button>
-            <AdminSideBar />
             <Footer/>
         </div>
     )
