@@ -1,32 +1,55 @@
+'use server'
 
-import Typography from '@mui/material/Typography';
-import AdminSideBar from "@/components/admin_page/admin_side_sidebar";
-import Footer from '@/components/footer/Footer';
-import Box from '@mui/material/Box';
-import AdminBreadcrumbs from "@/components/admin_page/admin_breadcrumbs";
 import IndividualsList from "@/components/admin_page/individuals_list";
+import AdminSidebar from "@/components/admin_page/admin_sidebar";
+import Box from "@mui/material/Box";
+import AdminBreadcrumbs from "@/components/admin_page/admin_breadcrumbs";
 
-export default function AdminIndividualsPage() {
+export default async function AdminIndividualsPage() {
+
     return (
-        <Box>
-            <AdminSideBar selectedButton={"Individuals"} />
-            <AdminBreadcrumbs
-                breadcrumbsList={ [ {text: "Admin", path: "/admin"}, {text: 'Individuals', path: "#"} ] }
-            />
-            <Typography
-                sx={{
-                    textAlign: 'center',
-                    margin: 2,
-                }}
-                variant="h4"
-                gutterBottom={true}
-            >
-                Admin Page Individuals
-            </Typography>
-            <Box >
-                <IndividualsList />
+        <div>
+            <AdminSidebar selectedButton={'Individuals'} />
+            <Box sx={{pt:0, p: 2}}>
+                <AdminBreadcrumbs breadcrumbsList={[{text: 'Admin', path: '/admin'}, {text: 'Individuals', path: '#'}]}/>
+                <IndividualsList/>
             </Box>
-            <Footer />
-        </Box>
+        </div>
     )
 }
+
+// export default function AdminIndividualsPage() {
+//
+//     return (
+//         <Box sx={{ display: 'flex', minHeight: '100vh' }}>
+//             <AdminSideBar selectedButton={"Individuals"} />
+//
+//             <Box
+//                 sx={{
+//                     flexGrow: 1,
+//                     p: 3, // Add some padding to the main content area
+//                     width: { sm: `calc(100% - ${DRAWER_WIDTH})` },
+//                 }}
+//             >
+//                 <Toolbar />
+//                 <AdminBreadcrumbs
+//                     breadcrumbsList={ [ {text: "Admin", path: "/admin"}, {text: 'Individuals', path: "#"} ] }
+//                 />
+//                 <Typography
+//                     sx={{
+//                         textAlign: 'center',
+//                         margin: 2,
+//                     }}
+//                     variant="h4"
+//                     gutterBottom={true}
+//                 >
+//                     Admin Page Individuals
+//                 </Typography>
+//                 <Box sx={{ flexGrow: 1 }}>
+//                     <IndividualsList />
+//                 </Box>
+//                 <Footer />
+//             </Box>
+//         </Box>
+//     )
+// }
