@@ -1,11 +1,13 @@
+'use server'
+
 import Footer from '@/components/footer/Footer';
 // import Link from 'next/link'
 import Link from '@/components/Link';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import AdminSideBar from "@/components/admin_page/admin_side_sidebar";
+import AdminSideBar from "@/components/admin_page/admin_sidebar";
 
-export default function AdminPage() {
+export default async function AdminPage() {
     return (
         <div>
             {/*<Link href="/admin/individuals">Individuals 555553Page</Link>*/}

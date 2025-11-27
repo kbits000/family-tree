@@ -25,10 +25,11 @@ import HistoryIcon from '@mui/icons-material/History';
 import LogoutIcon from '@mui/icons-material/Logout';
 import UpdateIcon from '@mui/icons-material/Update';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import CssBaseline from '@mui/material/CssBaseline';
 
 const drawerWidth = 240; // Define a consistent width
 
-export default function AdminSideBar({selectedButton}: {selectedButton: string}) {
+export default function AdminSideBarOld({selectedButton}: {selectedButton: string}) {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const theme = useTheme();
@@ -103,6 +104,7 @@ export default function AdminSideBar({selectedButton}: {selectedButton: string})
 
     return (
         <ThemeProvider theme={theme}>
+            <CssBaseline />
             <AppBar
                 position="sticky"
                 sx={{
