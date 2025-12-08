@@ -14,7 +14,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <AppRouterCacheProvider>
+                <AppRouterCacheProvider options={{ enableCssLayer: true }}>
                     {children}
                 </AppRouterCacheProvider>
             </body>
