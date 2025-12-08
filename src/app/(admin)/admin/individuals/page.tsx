@@ -4,16 +4,18 @@ import IndividualsList from "@/components/admin_page/individuals_list";
 import AdminSidebar from "@/components/admin_page/admin_sidebar";
 import Box from "@mui/material/Box";
 import AdminBreadcrumbs from "@/components/admin_page/admin_breadcrumbs";
+import Footer from "@/components/footer/Footer";
 
 export default async function AdminIndividualsPage() {
 
     return (
         <div>
             <AdminSidebar selectedButton={'Individuals'} />
-            <Box sx={{pt:0, p: 2}}>
+            <Box sx={{px:4, py: 0}}>
                 <AdminBreadcrumbs breadcrumbsList={[{text: 'Admin', path: '/admin'}, {text: 'Individuals', path: '#'}]}/>
                 <IndividualsList/>
             </Box>
+            <Footer />
         </div>
     )
 }
