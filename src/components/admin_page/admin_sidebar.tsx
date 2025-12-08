@@ -53,7 +53,7 @@ export default function AdminSidebar({content, selectedButton} : {content?: Reac
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
+                صفحة المشرف
             </Typography>
             <Divider />
             <List>
@@ -90,7 +90,7 @@ export default function AdminSidebar({content, selectedButton} : {content?: Reac
                         component="div"
                         sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                     >
-                        Admin Page
+                        صفحة المشرف
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
                         {navItems.map((item) => (
